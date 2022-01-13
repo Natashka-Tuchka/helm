@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+  namespace: {{ .Values.namespace }}
+data:
+  releaseName: {{ .Chart.Name }}
+  releaseVersion: {{ .Chart.Version }}
+  release: {{ .Chart.Name }}:{{ .Chart.Version }}
+  webserver.default.conf: {{ .Values.confContent | nindent 4 }}
+
